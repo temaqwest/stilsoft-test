@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "name": "Garry Oldman",
+    "date": "12.05.1993",
+    "image": "https://randomuser.me/api/portraits/women/81.jpg",
+    "sections": [
+      {
+        "id": 1,
+        "title": "Баскетбол",
+        "students": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Garry Oldman",
+    "date": "12.05.1993",
+    "image": "https://randomuser.me/api/portraits/men/81.jpg",
+    "sections": []
+  },
+  {
+    "id": 3,
+    "name": "Garry Oldman",
+    "date": "12.05.1993",
+    "image": "https://randomuser.me/api/portraits/women/21.jpg",
+    "sections": [
+      {
+        "id": 2,
+        "title": "Волейбол",
+        "students": []
+      },
+      {
+        "id": 3,
+        "title": "Футбол",
+        "students": []
+      },
+      {
+        "id": 4,
+        "title": "Шахматы",
+        "students": []
+      }
+    ]
+  }
+]
