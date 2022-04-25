@@ -3,11 +3,6 @@
     <h1 class="display-1 mb-10 mt-4">Секции</h1>
     <v-row>
       <v-col
-        cols="3"
-      >
-        <StudentForm/>
-      </v-col>
-      <v-col
         cols="9"
       >
         <SectionItem

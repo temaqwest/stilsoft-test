@@ -11,11 +11,20 @@ const store = new Vuex.Store({
         count: 4,
         students: Students,
         sections: Sections,
+        select: null,
+        selectList: [
+            { title: 'По названию', value: 'name' }
+        ]
     }),
     getters: {
-
+        sortStudents(state) {
+            return [...state.students].sort((i, j) => i[state.select]?.localeCompare(j[state.select]));
+        }
     },
     mutations: {
+        setSelect(state, select) {
+            state.select = select;
+        },
         setStudents(state, students) {
             state.students = students;
         },

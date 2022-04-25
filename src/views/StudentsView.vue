@@ -1,6 +1,18 @@
 <template>
   <div>
-    <h1 class="display-1 mb-10 mt-4">Студенты</h1>
+    <div class="d-flex align-center justify-space-between">
+      <h1 class="display-1 mb-10 mt-4">Студенты</h1>
+      <v-select
+          v-model="$store.state.select"
+          :items="$store.state.selectList"
+          @change="sortStudents"
+          label="Сортировать по"
+          item-text="title"
+          item-value="value"
+          class="flex-grow-0"
+          dark
+      />
+    </div>
     <v-row>
       <v-col
           cols="3"
@@ -11,7 +23,7 @@
           cols="9"
       >
         <StudentItem
-            v-for="item in $store.state.students"
+            v-for="item in $store.getters.sortStudents"
             :student="item"
             :key="item.id"
         />
@@ -31,18 +43,18 @@ export default {
     StudentItem
   },
   data() {
-    return {
-    }
+    return {}
   },
   methods: {
     onSubmitForm(data) {
-      console.log('From sView', data)
-
       this.$store.commit('setStudentToSection', {
         student: { id: data.id, name: data.name, sections: data.sections},
         section: data.sections
       });
+    },
+    sortStudents(value) {
+      this.$store.commit('setSelect', value);
     }
-  }
+  },
 }
 </script>

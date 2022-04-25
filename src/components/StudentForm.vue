@@ -117,7 +117,6 @@ export default {
       v => (v && v.length <= 40) || 'ФИО должно содержать до 40 символов',
     ],
     select: null,
-    items: [],
     checkbox: false,
   }),
 
