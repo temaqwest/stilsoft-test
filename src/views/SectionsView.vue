@@ -10,37 +10,11 @@
       <v-col
         cols="9"
       >
-        <v-card
-          outlined
-          class="mb-4"
-          v-for="item in data"
-          :key="item.id"
-        >
-          <v-list-item three-line>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{item.name}}
-              </v-list-item-title>
-              <v-list-item-subtitle>
-                {{item.city}}
-              </v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-avatar
-                tile
-                size="80"
-                color="grey"
-            ></v-list-item-avatar>
-          </v-list-item>
-          <v-card-actions>
-            <v-btn
-                outlined
-                rounded
-                text
-            >
-              Button
-            </v-btn>
-          </v-card-actions>
-        </v-card>
+        <SectionItem
+            v-for="item in $store.state.sections"
+            :section="item"
+            :key="item.id"
+        />
       </v-col>
     </v-row>
   </div>
@@ -48,17 +22,16 @@
 
 <script>
 import StudentForm from "@/components/StudentForm";
-import data from '@/assets/students.json';
+import SectionItem from "@/components/SectionItem";
 
 export default {
   name: 'Sections',
   components: {
-    StudentForm
+    StudentForm,
+    SectionItem
   },
   data() {
-    return {
-      data: data
-    }
+    return {}
   }
 }
 </script>

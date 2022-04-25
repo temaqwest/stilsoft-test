@@ -21,10 +21,51 @@ const store = new Vuex.Store({
         },
         setSections(state, sections) {
             state.sections = sections;
-        }
+        },
+        setStudentToSection(state, payload) {
+            for (let i = 0; i < state.sections.length; i++) {
+                payload.section.forEach(sec => {
+                    if (sec.id === state.sections[i].id)
+                       state.sections[i].students.push({id: payload.student.id, name: payload.student.name});
+                });
+            }
+
+            state.students.push(payload.student);
+        },
     },
     actions: {
+        deleteStudent({state, commit}, payload) {
+            const updatedSection = state.sections.map(section => {
+                if (section.students.find(i => i.id === payload.studentID)) {
+                    section.students = section.students.filter(i => i.id !== payload.studentID)
+                }
 
+                return section;
+            });
+
+            commit('setSections', updatedSection);
+            commit('setStudents', state.students.filter(i => i.id !== payload.studentID));
+        },
+        deleteStudentFromSection({state, commit}, payload) {
+            const newSections = state.sections.map(sec => {
+                if (sec.id === payload.sectionID) {
+                    sec.students = sec.students.filter(student => student.id !== payload.studentID)
+                }
+                return sec;
+            });
+
+            commit('setSections', newSections);
+
+            const newStudents = state.students.map(stud => {
+                if (stud.id === payload.studentID) {
+                    stud.sections = stud.sections.filter(sec => sec.id !== payload.sectionID);
+                }
+
+                return stud;
+            })
+            commit('setStudents', newStudents);
+
+        }
     }
 })
 

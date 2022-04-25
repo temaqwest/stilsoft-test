@@ -1,44 +1,40 @@
 [
   {
     "id": 1,
-    "name": "Garry Oldman",
+    "name": "Игорь Шевчук",
     "date": "12.05.1993",
     "image": "https://randomuser.me/api/portraits/women/81.jpg",
     "sections": [
       {
         "id": 1,
-        "title": "Баскетбол",
-        "students": []
+        "title": "Баскетбол"
       }
     ]
   },
   {
     "id": 2,
-    "name": "Garry Oldman",
+    "name": "Андрей Скоробогатов",
     "date": "12.05.1993",
     "image": "https://randomuser.me/api/portraits/men/81.jpg",
     "sections": []
   },
   {
     "id": 3,
-    "name": "Garry Oldman",
+    "name": "Илья Миронов",
     "date": "12.05.1993",
     "image": "https://randomuser.me/api/portraits/women/21.jpg",
     "sections": [
       {
         "id": 2,
-        "title": "Волейбол",
-        "students": []
+        "title": "Волейбол"
       },
       {
         "id": 3,
-        "title": "Футбол",
-        "students": []
+        "title": "Футбол"
       },
       {
         "id": 4,
-        "title": "Шахматы",
-        "students": []
+        "title": "Шахматы"
       }
     ]
   }

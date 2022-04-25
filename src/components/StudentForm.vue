@@ -60,6 +60,7 @@
         :rules="[v => !!v || 'Необходимо выбрать хотя бы одну секцию']"
         label="Секция"
         required
+        multiple
         dark
         item-text="title"
         item-value="id"
@@ -75,16 +76,18 @@
       <v-btn
           :disabled="!valid"
           color="success"
-          class="mr-4 my-2"
+          class="my-2"
           @click="validate"
+          block
       >
         Внести данные
       </v-btn>
 
       <v-btn
           color="error"
-          class="mr-4 my-2"
+          class="my-2"
           @click="reset"
+          block
       >
         Сбросить поля
       </v-btn>
@@ -93,6 +96,7 @@
           color="warning"
           @click="resetValidation"
           class="my-2"
+          block
       >
         Сбросить валидацию
       </v-btn>
@@ -120,9 +124,20 @@ export default {
   methods: {
     validate () {
       if (this.$refs.form.validate()) {
+        let sections = [];
+
+        for (let i = 0; i < this.select.length; i++) {
+          this.$store.state.sections.forEach(sec => {
+            if (sec.id === this.select[i]) {
+              sections.push({id: sec.id, title: sec.title});
+            }
+          })
+        }
+
         this.$emit('submitForm', {
+          id: Date.now(),
           name: this.name,
-          section: this.select,
+          sections: sections,
           date: this.date,
         });
       }
